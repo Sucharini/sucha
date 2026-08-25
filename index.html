@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[ชื่อธุรกิจ] — Creative Studio</title>
+  <style>
+    :root{
+      --cream:#FFF4D6;
+      --peach:#FFB38A;
+      --orange:#FF7043;
+      --yellow:#FFD84D;
+      --black:#171512;
+      --white:#fffaf0;
+      --border:3px solid var(--black);
+      --shadow:7px 7px 0 var(--black);
+      --radius:24px;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--cream);
+      color:var(--black);
+      line-height:1.5;
+      overflow-x:hidden;
+    }
+
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+
+    .nav{
+      position:sticky;
+      top:0;
+      z-index:100;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:20px 5vw;
+      background:rgba(255,244,214,.94);
+      backdrop-filter:blur(12px);
+      border-bottom:var(--border);
+    }
+
+    .logo{
+      font-size:1.4rem;
+      font-weight:1000;
+      letter-spacing:-1px;
+    }
+
+    .logo span{color:var(--orange)}
+
+    .nav-links{
+      display:flex;
+      gap:8px;
+      list-style:none;
+    }
+
+    .nav-links a{
+      padding:10px 15px;
+      border:2px solid transparent;
+      font-weight:800;
+      transition:.25s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active{
+      background:var(--yellow);
+      border-color:var(--black);
+      box-shadow:3px 3px 0 var(--black);
+      transform:translate(-2px,-2px);
+    }
+
+    .menu-btn{
+      display:none;
+      background:var(--yellow);
+      border:var(--border);
+      padding:8px 12px;
+      font-size:1.2rem;
+      cursor:pointer;
+    }
+
+    .hero{
+      min-height:calc(100vh - 80px);
+      padding:7vw 5vw;
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:5vw;
+      align-items:center;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .hero-copy{position:relative;z-index:2}
+
+    .eyebrow{
+      display:inline-block;
+      padding:8px 14px;
+      background:var(--black);
+      color:var(--cream);
+      border-radius:50px;
+      font-weight:900;
+      margin-bottom:24px;
+      transform:rotate(-2deg);
+    }
+
+    h1{
+      font-size:clamp(4rem,9vw,9rem);
+      line-height:.82;
+      letter-spacing:-.075em;
+      max-width:900px;
+      margin-bottom:35px;
+    }
+
+    h1 .orange{color:var(--orange)}
+    h1 .stroke{
+      color:transparent;
+      -webkit-text-stroke:3px var(--black);
+    }
+
+    .hero-copy p{
+      max-width:600px;
+      font-size:1.2rem;
+      font-weight:600;
+      margin-bottom:30px;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:15px 24px;
+      border:var(--border);
+      background:var(--orange);
+      font-weight:900;
+      box-shadow:var(--shadow);
+      transition:.25s;
+    }
+
+    .btn:hover{
+      transform:translate(4px,4px);
+      box-shadow:3px 3px 0 var(--black);
+    }
+
+    .btn.alt{
+      background:var(--yellow);
+      margin-left:12px;
+    }
+
+    .collage{
+      height:600px;
+      position:relative;
+    }
+
+    .shape{
+      position:absolute;
+      border:var(--border);
+      box-shadow:var(--shadow);
+    }
+
+    .shape.one{
+      width:55%;
+      height:65%;
+      right:8%;
+      top:10%;
+      background:var(--orange);
+      transform:rotate(7deg);
+    }
+
+    .shape.two{
+      width:55%;
+      height:55%;
+      left:8%;
+      bottom:8%;
+      background:var(--yellow);
+      transform:rotate(-8deg);
+    }
+
+    .shape.three{
+      width:48%;
+      height:48%;
+      right:20%;
+      bottom:4%;
+      background:var(--peach);
+      transform:rotate(3deg);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:5rem;
+      font-weight:1000;
+    }
+
+    .shape.four{
+      width:90px;
+      height:90px;
+      border-radius:50%;
+      background:var(--black);
+      right:2%;
+      top:4%;
+      box-shadow:none;
+    }
+
+    .ticker{
+      border-top:var(--border);
+      border-bottom:var(--border);
+      background:var(--yellow);
+      padding:16px 0;
+      overflow:hidden;
+      white-space:nowrap;
+      font-size:1.2rem;
+      font-weight:1000;
+    }
+
+    .ticker-track{
+      display:inline-block;
+      animation:marquee 18s linear infinite;
+    }
+
+    @keyframes marquee{
+      to{transform:translateX(-50%)}
+    }
+
+    .intro{
+      padding:110px 5vw;
+      display:grid;
+      grid-template-columns:.8fr 1.2fr;
+      gap:8vw;
+      background:var(--black);
+      color:var(--cream);
+    }
+
+    .intro h2,
+    .section-title{
+      font-size:clamp(3rem,7vw,7rem);
+      line-height:.85;
+      letter-spacing:-.06em;
+    }
+
+    .intro p{
+      font-size:1.4rem;
+      max-width:750px;
+    }
+
+    .numbers{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
+      padding:90px 5vw;
+      background:var(--peach);
+    }
+
+    .number{
+      border:var(--border);
+      padding:35px;
+      background:var(--cream);
+      box-shadow:var(--shadow);
+    }
+
+    .number strong{
+      display:block;
+      font-size:4rem;
+      line-height:1;
+    }
+
+    footer{
+      padding:50px 5vw;
+      background:var(--orange);
+      border-top:var(--border);
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      font-weight:800;
+    }
+
+    .reveal{
+      opacity:0;
+      transform:translateY(30px);
+      transition:.7s ease;
+    }
+
+    .reveal.show{
+      opacity:1;
+      transform:none;
+    }
+
+    @media(max-width:800px){
+      .nav{padding:15px 5vw}
+      .menu-btn{display:block}
+      .nav-links{
+        display:none;
+        position:absolute;
+        left:0;
+        right:0;
+        top:100%;
+        padding:15px 5vw;
+        background:var(--cream);
+        border-bottom:var(--border);
+        flex-direction:column;
+      }
+      .nav-links.open{display:flex}
+      .hero{
+        grid-template-columns:1fr;
+        padding-top:70px;
+      }
+      .collage{height:430px}
+      .intro{grid-template-columns:1fr;padding:80px 5vw}
+      .numbers{grid-template-columns:1fr}
+      .btn.alt{margin-left:0;margin-top:18px}
+      footer{flex-direction:column}
+    }
+  </style>
+</head>
+
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="logo">[ชื่อ<span>ธุรกิจ</span>]</a>
+
+  <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="work.html">Work</a></li>
+    <li><a href="process.html">Process</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<main>
+
+<section class="hero">
+  <div class="hero-copy reveal">
+    <span class="eyebrow">CREATIVE STUDIO / 2026</span>
+
+    <h1>
+      MAKE
+      <span class="orange">GOOD</span>
+      <span class="stroke">NOISE.</span>
+    </h1>
+
+    <p>
+      [ชื่อธุรกิจ] สร้างแบรนด์ เว็บไซต์ และประสบการณ์ดิจิทัล
+      ที่โดดเด่น สนุก และทำให้ธุรกิจของคุณถูกจดจำ
+    </p>
+
+    <a href="contact.html" class="btn">START A PROJECT →</a>
+    <a href="work.html" class="btn alt">SEE OUR WORK</a>
+  </div>
+
+  <div class="collage reveal">
+    <div class="shape one"></div>
+    <div class="shape two"></div>
+    <div class="shape three">✦</div>
+    <div class="shape four"></div>
+  </div>
+</section>
+
+<div class="ticker">
+  <div class="ticker-track">
+    BRANDING ✦ WEB DESIGN ✦ DIGITAL EXPERIENCE ✦ CREATIVE DIRECTION ✦
+    BRANDING ✦ WEB DESIGN ✦ DIGITAL EXPERIENCE ✦ CREATIVE DIRECTION ✦
+  </div>
+</div>
+
+<section class="intro reveal">
+  <h2>WE MAKE<br>IDEAS<br>LOUD.</h2>
+  <p>
+    เราเชื่อว่าดีไซน์ที่ดีไม่ควรเป็นเพียงสิ่งที่ “สวย”
+    แต่ต้องมีคาแรกเตอร์ สื่อสารได้ และสร้างความรู้สึกบางอย่าง
+    ให้กับคนที่เห็น
+    <br><br>
+    จาก strategy ไปจนถึง visual และ digital experience
+    เราทำทุกอย่างให้เป็นภาพเดียวกัน
+  </p>
+</section>
+
+<section class="numbers">
+  <div class="number reveal">
+    <strong>50+</strong>
+    Projects
+  </div>
+  <div class="number reveal">
+    <strong>12</strong>
+    Industries
+  </div>
+  <div class="number reveal">
+    <strong>∞</strong>
+    Big Ideas
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div>© 2026 [ชื่อธุรกิจ]</div>
+  <div>Creative things for ambitious people.</div>
+</footer>
+
+<script>
+function toggleMenu(){
+  document.querySelector('.nav-links').classList.toggle('open');
+}
+
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting) entry.target.classList.add('show');
+  });
+},{threshold:.12});
+
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+</script>
+
+</body>
+</html>
