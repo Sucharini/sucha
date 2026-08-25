@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Process — [ชื่อธุรกิจ]</title>
+
+<style>
+:root{
+ --cream:#FFF4D6;
+ --orange:#FF7043;
+ --peach:#FFB38A;
+ --yellow:#FFD84D;
+ --black:#171512;
+ --border:3px solid var(--black);
+ --shadow:7px 7px 0 var(--black);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+ font-family:Arial,Helvetica,sans-serif;
+ background:var(--peach);color:var(--black)
+}
+a{color:inherit;text-decoration:none}
+.nav{
+ position:sticky;top:0;z-index:10;
+ display:flex;justify-content:space-between;align-items:center;
+ padding:20px 5vw;background:rgba(255,244,214,.95);
+ border-bottom:var(--border)
+}
+.logo{font-size:1.4rem;font-weight:1000}.logo span{color:var(--orange)}
+.nav-links{display:flex;gap:8px;list-style:none}
+.nav-links a{padding:10px 15px;font-weight:800}
+.nav-links a:hover,.nav-links a.active{
+ background:var(--yellow);border:2px solid var(--black);
+ box-shadow:3px 3px 0 var(--black)
+}
+.menu-btn{display:none;background:var(--yellow);border:var(--border);padding:8px}
+.hero{
+ padding:90px 5vw 110px;
+ background:var(--cream);
+ border-bottom:var(--border)
+}
+.hero h1{
+ font-size:clamp(4rem,10vw,10rem);
+ line-height:.8;letter-spacing:-.08em
+}
+.hero p{
+ max-width:650px;font-size:1.3rem;font-weight:700;
+ margin-top:30px
+}
+.steps{
+ padding:100px 5vw;
+ display:grid;
+ gap:0
+}
+.step{
+ display:grid;
+ grid-template-columns:130px 1fr;
+ border-top:var(--border);
+ padding:55px 0;
+ position:relative
+}
+.step:last-child{border-bottom:var(--border)}
+.step-number{
+ font-size:4rem;font-weight:1000;
+ color:var(--orange)
+}
+.step h2{
+ font-size:clamp(2.5rem,6vw,6rem);
+ line-height:.9;
+ letter-spacing:-.06em;
+}
+.step p{
+ max-width:700px;font-size:1.15rem;font-weight:600;
+ margin-top:18px
+}
+.step:nth-child(even){
+ background:var(--yellow);
+ padding-left:30px;padding-right:30px;
+}
+.quote{
+ padding:100px 5vw;
+ background:var(--black);color:var(--cream)
+}
+.quote h2{
+ max-width:1000px;
+ font-size:clamp(3rem,7vw,7rem);
+ line-height:.85;
+}
+footer{
+ padding:40px 5vw;background:var(--orange);
+ border-top:var(--border);font-weight:900
+}
+@media(max-width:800px){
+ .menu-btn{display:block}
+ .nav-links{
+  display:none;position:absolute;top:100%;left:0;right:0;
+  background:var(--cream);padding:15px 5vw;
+  flex-direction:column;border-bottom:var(--border)
+ }
+ .nav-links.open{display:flex}
+ .step{grid-template-columns:70px 1fr}
+ .step-number{font-size:2.5rem}
+ .step:nth-child(even){padding-left:15px;padding-right:15px}
+}
+</style>
+</head>
+
+<body>
+
+<nav class="nav">
+ <a href="index.html" class="logo">[ชื่อ<span>ธุรกิจ</span>]</a>
+ <button class="menu-btn" onclick="toggleMenu()">☰</button>
+ <ul class="nav-links">
+  <li><a href="index.html">Home</a></li>
+  <li><a href="services.html">Services</a></li>
+  <li><a href="work.html">Work</a></li>
+  <li><a href="process.html" class="active">Process</a></li>
+  <li><a href="contact.html">Contact</a></li>
+ </ul>
+</nav>
+
+<header class="hero">
+ <h1>HOW WE<br>MAKE<br>THINGS.</h1>
+ <p>
+  กระบวนการของเราถูกออกแบบให้ชัดเจน รวดเร็ว และเปิดพื้นที่
+  ให้ความคิดสร้างสรรค์เกิดขึ้นจริง
+ </p>
+</header>
+
+<main class="steps">
+
+<section class="step">
+ <div class="step-number">01</div>
+ <div>
+  <h2>DISCOVER</h2>
+  <p>
+   ทำความเข้าใจธุรกิจ กลุ่มเป้าหมาย คู่แข่ง และเป้าหมายของโปรเจกต์
+   ก่อนเริ่มสร้างสรรค์
+  </p>
+ </div>
+</section>
+
+<section class="step">
+ <div class="step-number">02</div>
+ <div>
+  <h2>DEFINE</h2>
+  <p>
+   สรุป strategy, positioning, creative direction
+   และทิศทาง visual ให้ทุกคนเห็นภาพเดียวกัน
+  </p>
+ </div>
+</section>
+
+<section class="step">
+ <div class="step-number">03</div>
+ <div>
+  <h2>DESIGN</h2>
+  <p>
+   เปลี่ยน strategy ให้กลายเป็น visual identity,
+   website และ digital experience ที่จับต้องได้
+  </p>
+ </div>
+</section>
+
+<section class="step">
+ <div class="step-number">04</div>
+ <div>
+  <h2>DELIVER</h2>
+  <p>
+   ปรับรายละเอียด ทดสอบ responsive experience
+   และส่งมอบงานพร้อมใช้งานจริง
+  </p>
+ </div>
+</section>
+
+</main>
+
+<section class="quote">
+ <h2>GOOD WORK<br>STARTS WITH<br>GOOD QUESTIONS.</h2>
+</section>
+
+<footer>© 2026 [ชื่อธุรกิจ] — From idea to impact.</footer>
+
+<script>
+function toggleMenu(){
+ document.querySelector('.nav-links').classList.toggle('open');
+}
+</script>
+
+</body>
+</html>
