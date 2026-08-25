@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Work — [ชื่อธุรกิจ]</title>
+
+<style>
+:root{
+ --cream:#FFF4D6;
+ --orange:#FF7043;
+ --peach:#FFB38A;
+ --yellow:#FFD84D;
+ --black:#171512;
+ --border:3px solid var(--black);
+ --shadow:7px 7px 0 var(--black);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+ font-family:Arial,Helvetica,sans-serif;
+ background:var(--cream);color:var(--black)
+}
+a{color:inherit;text-decoration:none}
+.nav{
+ position:sticky;top:0;z-index:20;
+ display:flex;justify-content:space-between;align-items:center;
+ padding:20px 5vw;background:rgba(255,244,214,.95);
+ border-bottom:var(--border)
+}
+.logo{font-size:1.4rem;font-weight:1000}.logo span{color:var(--orange)}
+.nav-links{display:flex;gap:8px;list-style:none}
+.nav-links a{padding:10px 15px;font-weight:800}
+.nav-links a:hover,.nav-links a.active{
+ background:var(--yellow);border:2px solid var(--black);
+ box-shadow:3px 3px 0 var(--black)
+}
+.menu-btn{display:none;background:var(--yellow);border:var(--border);padding:8px}
+.hero{
+ padding:90px 5vw;
+ background:var(--yellow);
+ border-bottom:var(--border)
+}
+.hero p{
+ font-weight:900;font-size:1.1rem;margin-bottom:20px
+}
+h1{
+ font-size:clamp(4rem,11vw,10rem);
+ line-height:.8;letter-spacing:-.08em
+}
+.work{
+ padding:90px 5vw;
+ display:grid;
+ grid-template-columns:repeat(12,1fr);
+ gap:30px
+}
+.project{
+ border:var(--border);
+ box-shadow:var(--shadow);
+ overflow:hidden;
+ transition:.3s;
+}
+.project:hover{
+ transform:translateY(-8px) rotate(-1deg);
+}
+.project:nth-child(1){grid-column:span 7;background:var(--orange)}
+.project:nth-child(2){grid-column:span 5;background:var(--peach)}
+.project:nth-child(3){grid-column:span 5;background:#C8E6C9}
+.project:nth-child(4){grid-column:span 7;background:#DCC7FF}
+.visual{
+ height:350px;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ font-size:6rem;
+ font-weight:1000;
+ border-bottom:var(--border);
+}
+.project:nth-child(2) .visual{height:480px}
+.project:nth-child(3) .visual{height:430px}
+.project:nth-child(4) .visual{height:330px}
+.info{padding:25px}
+.info h2{font-size:2rem}
+.info p{font-weight:700;margin-top:8px}
+.cta{
+ padding:100px 5vw;background:var(--black);color:var(--cream)
+}
+.cta h2{
+ font-size:clamp(3rem,8vw,8rem);line-height:.8
+}
+footer{
+ padding:40px 5vw;background:var(--orange);
+ border-top:var(--border);font-weight:900
+}
+@media(max-width:800px){
+ .menu-btn{display:block}
+ .nav-links{
+  display:none;position:absolute;top:100%;left:0;right:0;
+  background:var(--cream);padding:15px 5vw;
+  flex-direction:column;border-bottom:var(--border)
+ }
+ .nav-links.open{display:flex}
+ .work{grid-template-columns:1fr;padding:60px 5vw}
+ .project,
+ .project:nth-child(n){grid-column:span 1}
+ .visual,.project:nth-child(2) .visual,
+ .project:nth-child(3) .visual,
+ .project:nth-child(4) .visual{height:300px}
+}
+</style>
+</head>
+
+<body>
+
+<nav class="nav">
+ <a href="index.html" class="logo">[ชื่อ<span>ธุรกิจ</span>]</a>
+ <button class="menu-btn" onclick="toggleMenu()">☰</button>
+ <ul class="nav-links">
+  <li><a href="index.html">Home</a></li>
+  <li><a href="services.html">Services</a></li>
+  <li><a href="work.html" class="active">Work</a></li>
+  <li><a href="process.html">Process</a></li>
+  <li><a href="contact.html">Contact</a></li>
+ </ul>
+</nav>
+
+<header class="hero">
+ <p>SELECTED PROJECTS / 2024—2026</p>
+ <h1>THE<br>GOOD<br>STUFF.</h1>
+</header>
+
+<main class="work">
+
+<article class="project">
+ <div class="visual">✹</div>
+ <div class="info">
+  <h2>MOON COFFEE</h2>
+  <p>Brand Identity / Packaging / Art Direction</p>
+ </div>
+</article>
+
+<article class="project">
+ <div class="visual">◎</div>
+ <div class="info">
+  <h2>PLAY HOUSE</h2>
+  <p>Digital Experience / Web Design</p>
+ </div>
+</article>
+
+<article class="project">
+ <div class="visual">✦</div>
+ <div class="info">
+  <h2>FRESH LAB</h2>
+  <p>Brand Strategy / Identity</p>
+ </div>
+</article>
+
+<article class="project">
+ <div class="visual">↗</div>
+ <div class="info">
+  <h2>NOON CLUB</h2>
+  <p>Campaign / Creative Direction / Social</p>
+ </div>
+</article>
+
+</main>
+
+<section class="cta">
+ <h2>YOUR PROJECT<br>COULD BE NEXT.</h2>
+ <br>
+ <a href="contact.html">START SOMETHING →</a>
+</section>
+
+<footer>© 2026 [ชื่อธุรกิจ]</footer>
+
+<script>
+function toggleMenu(){
+ document.querySelector('.nav-links').classList.toggle('open');
+}
+</script>
+
+</body>
+</html>
